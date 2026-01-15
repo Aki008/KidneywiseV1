@@ -1,0 +1,142 @@
+╔══════════════════════════════════════════════════════════════╗
+║                    KIDNEYWISE - START HERE                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+🎯 YOUR GOAL: Open http://localhost:3000 in your browser
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📍 YOU ARE HERE:
+/Users/ankitsharma/Documents/Kidneywise/kidneywise-app/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  FIRST TIME? INSTALL PREREQUISITES FIRST!
+
+1. Open file: INSTALL_PREREQUISITES.md
+2. Follow the installation steps (15-20 minutes)
+3. Come back here after installation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 ALREADY INSTALLED? START THE APP:
+
+METHOD 1 - AUTOMATIC (Easiest):
+───────────────────────────────────────────────────────────────
+Open Terminal and run:
+
+    cd /Users/ankitsharma/Documents/Kidneywise/kidneywise-app
+    ./RUN_ME_FIRST.sh
+
+Then follow the instructions on screen!
+
+METHOD 2 - MANUAL (Step by Step):
+───────────────────────────────────────────────────────────────
+
+TERMINAL 1 (Backend):
+1. cd /Users/ankitsharma/Documents/Kidneywise/kidneywise-app/backend
+2. npm install
+3. cp .env.example .env
+4. nano .env  (add your OpenAI API key)
+5. npx knex migrate:latest
+6. npx knex seed:run
+7. npm run dev
+   ✅ Should show "Server Running at http://localhost:8080"
+
+TERMINAL 2 (Frontend - NEW TERMINAL):
+1. cd /Users/ankitsharma/Documents/Kidneywise/kidneywise-app/frontend
+2. npm install
+3. npm run dev
+   ✅ Should show "Local: http://localhost:3000"
+
+BROWSER:
+Open: http://localhost:3000
+✅ Should show KidneyWise landing page
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌐 THE LINK TO OPEN IN BROWSER:
+
+    http://localhost:3000
+
+(Copy this and paste it in your browser address bar)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ CAN'T CONNECT TO SERVER?
+
+1. Check Terminal 1 - Backend should be running (port 8080)
+2. Check Terminal 2 - Frontend should be running (port 3000)
+3. Check PostgreSQL is running: pg_isready
+4. Read: HOW_TO_START.md for detailed troubleshooting
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 HELP DOCUMENTATION:
+
+Quick Start:
+→ HOW_TO_START.md         (Visual guide, step by step)
+→ QUICKSTART.md           (5-minute version)
+→ BROWSER_LINK.txt        (Just the link info)
+
+Installation:
+→ INSTALL_PREREQUISITES.md (Install Node, PostgreSQL, etc.)
+
+Detailed:
+→ START_APP.md            (Complete setup guide)
+→ README.md               (Full documentation)
+→ TESTING_GUIDE.md        (How to test features)
+
+Features:
+→ FEATURES_ADDED.md       (List of all features)
+→ PROJECT_SUMMARY.md      (Technical overview)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ SUCCESS LOOKS LIKE:
+
+Terminal 1: Shows "KidneyWise API Server Running"
+Terminal 2: Shows "Local: http://localhost:3000"
+Browser:    Shows KidneyWise landing page with green button
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 ONCE IT'S RUNNING:
+
+1. Click "Get Started Free"
+2. Create account: test@kidney.com / Test123456
+3. Complete 4-step onboarding
+4. Explore features:
+   - Scan Food (camera/upload)
+   - Log Symptoms
+   - View Meal History
+   - Check Dashboard
+
+Use the bottom navigation bar to switch between features!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 STILL STUCK?
+
+1. Check if prerequisites are installed:
+   node --version
+   npm --version
+   psql --version
+
+   If any command fails, read: INSTALL_PREREQUISITES.md
+
+2. Make sure PostgreSQL is running:
+   brew services start postgresql@14
+
+3. Check both terminals are running without errors
+
+4. Try http://127.0.0.1:3000 instead of localhost
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 TIP: Keep both terminal windows open while using the app!
+    Closing them will stop the servers.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Last Updated: January 14, 2025

@@ -1,0 +1,143 @@
+═══════════════════════════════════════════════════════════════
+                    KIDNEYWISE - BROWSER TESTING LINK
+═══════════════════════════════════════════════════════════════
+
+🌐 FRONTEND APPLICATION URL:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    http://localhost:3000
+
+═══════════════════════════════════════════════════════════════
+
+📋 SETUP CHECKLIST (Before Opening Link):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ Step 1: Database Created
+   Run: psql postgres -c "CREATE DATABASE kidneywise_dev;"
+        psql postgres -c "CREATE USER dev WITH PASSWORD 'devpass';"
+        psql kidneywise_dev -c "CREATE EXTENSION pg_trgm;"
+
+□ Step 2: Backend Running
+   Terminal 1: cd backend && npm install && npx knex migrate:latest &&
+               npx knex seed:run && npm run dev
+   Status: http://localhost:8080/health should return {"status":"healthy"}
+
+□ Step 3: Frontend Running
+   Terminal 2: cd frontend && npm install && npm run dev
+   Status: You should see "Server running at http://localhost:3000"
+
+═══════════════════════════════════════════════════════════════
+
+✅ VERIFICATION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Backend Health Check:
+→ http://localhost:8080/health
+   Expected: {"status":"healthy","timestamp":"2025-01-14T..."}
+
+Frontend:
+→ http://localhost:3000
+   Expected: KidneyWise landing page with "Get Started Free" button
+
+═══════════════════════════════════════════════════════════════
+
+🎯 QUICK TEST FLOW (5 minutes):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Open: http://localhost:3000
+2. Click "Get Started Free"
+3. Register with: test@kidney.com / Test123456 / Your Name
+4. Complete onboarding (4 steps - 2 minutes)
+5. View Dashboard (AI message + nutrient bars)
+6. Tap "Scan Food" → Upload image → Analyze
+7. Tap "Symptoms" in bottom nav → Log symptom
+8. Tap "History" in bottom nav → View meals
+9. Tap "Home" in bottom nav → Back to dashboard
+
+═══════════════════════════════════════════════════════════════
+
+📱 MOBILE ACCESS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Get your computer's IP address:
+   Mac: ipconfig getifaddr en0
+   Windows: ipconfig (look for IPv4)
+
+2. On your phone browser, go to:
+   http://YOUR_IP_ADDRESS:3000
+
+3. Install as PWA:
+   iOS: Share → Add to Home Screen
+   Android: Menu → Add to Home Screen
+
+═══════════════════════════════════════════════════════════════
+
+🔧 TROUBLESHOOTING:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Site can't be reached":
+→ Check backend is running (Terminal 1)
+→ Check frontend is running (Terminal 2)
+→ Try: http://127.0.0.1:3000
+
+"Database connection failed":
+→ Ensure PostgreSQL is running
+→ Check database exists: psql -l | grep kidneywise
+
+Port already in use:
+→ Kill port 3000: lsof -ti:3000 | xargs kill -9
+→ Kill port 8080: lsof -ti:8080 | xargs kill -9
+
+═══════════════════════════════════════════════════════════════
+
+📚 DOCUMENTATION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Full Setup:      START_APP.md
+Quick Start:     QUICKSTART.md
+New Features:    FEATURES_ADDED.md
+Testing Guide:   TESTING_GUIDE.md
+README:          README.md
+
+═══════════════════════════════════════════════════════════════
+
+🎉 FEATURES AVAILABLE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ User Registration & Login
+✓ 4-Step Onboarding
+✓ Personalized Dashboard with AI
+✓ Food Photo Analysis
+✓ Nutrient Calculation & Warnings
+✓ AI Food Alternatives
+✓ Meal History Page
+✓ Symptom Tracking
+✓ 7-Day Statistics
+✓ Bottom Navigation Bar
+✓ Mobile PWA Support
+
+═══════════════════════════════════════════════════════════════
+
+💡 IMPORTANT NOTES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• OpenAI API key required in backend/.env
+• PostgreSQL must be running
+• Both terminals (backend + frontend) must stay open
+• Use Chrome/Safari/Firefox (latest versions)
+• Mobile testing requires device on same WiFi network
+
+═══════════════════════════════════════════════════════════════
+
+🚀 READY TO START!
+
+→ Open your browser and paste this URL:
+
+    http://localhost:3000
+
+═══════════════════════════════════════════════════════════════
+
+Last Updated: January 14, 2025
+Version: 1.1.0 (Enhanced with Symptoms & History)
+
+═══════════════════════════════════════════════════════════════
