@@ -91,6 +91,12 @@ export default function LandingPage() {
             Get Started Free
           </button>
           <button
+            onClick={() => navigate('/kidney-diet-analyzer')}
+            className="btn btn-secondary w-full tap-target"
+          >
+            Try Kidney Diet Analyzer MVP
+          </button>
+          <button
             onClick={() => navigate('/login')}
             className="btn btn-secondary w-full tap-target"
           >

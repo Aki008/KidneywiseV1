@@ -12,6 +12,7 @@ import DashboardPage from './pages/DashboardPage';
 import FoodAnalysisPage from './pages/FoodAnalysisPage';
 import MealsHistoryPage from './pages/MealsHistoryPage';
 import SymptomsPage from './pages/SymptomsPage';
+import KidneyDietAnalyzerPage from './pages/KidneyDietAnalyzerPage';
 
 // Protected Route wrapper with bottom nav
 function ProtectedRoute({ children, showBottomNav = true }: { children: React.ReactNode; showBottomNav?: boolean }) {
@@ -38,6 +39,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/kidney-diet-analyzer" element={<KidneyDietAnalyzerPage />} />
 
           {/* Protected routes */}
           <Route
