@@ -36,7 +36,13 @@ If you want a public link, use a tunneling tool such as `ngrok http 5173` and op
 
 ### Environment Variables
 
-Create `backend_fastapi/.env` (use the example):
+Create `backend_fastapi/.env` (use the example). On macOS Finder, files starting with a dot can be hidden—use Terminal if needed:
+
+```bash
+cd /path/to/KidneywiseV1/backend_fastapi
+touch .env
+open -a TextEdit .env
+```
 
 ```
 OPENAI_API_KEY=sk-your-openai-key
