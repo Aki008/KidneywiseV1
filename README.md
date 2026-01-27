@@ -1,5 +1,124 @@
 # KidneyWise - AI-Powered Kidney Disease Management
 
+## Kidney Diet Analyzer MVP (FastAPI + React)
+
+This MVP adds a dedicated Kidney Diet Analyzer with three flows:
+1) Food photo → dish candidates → confirm dish/portion → nutrient estimates (K/Na/Protein).
+2) Voice meal → transcript → clarification → nutrient estimates.
+3) Menu photo → extracted items → kidney-friendlier suggestions.
+
+### Required API Keys (no defaults)
+- **OPENAI_API_KEY**: required for vision + parsing.
+- **FDC_API_KEY**: required for USDA FoodData Central nutrient values.
+  - Get a free key at https://fdc.nal.usda.gov/api-key-signup.html
+
+### Run the Backend (FastAPI)
+
+```bash
+cd backend_fastapi && python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+### Run the Frontend (React + Vite)
+
+```bash
+cd frontend && npm install && npm run dev -- --host 0.0.0.0 --port 5173
+```
+
+Open `http://localhost:5173/kidney-diet-analyzer` in your browser.
+
+### Test on a Mobile Phone (iOS Safari / Chrome)
+
+1) Ensure your phone and laptop are on the same Wi-Fi network.
+2) Find your laptop IP (example: `192.168.1.50`).
+3) Open `http://<YOUR_IP>:5173/kidney-diet-analyzer` on your phone.
+
+If you want a public link, use a tunneling tool such as `ngrok http 5173` and open the provided HTTPS URL on mobile.
+
+### Environment Variables
+
+Create `backend_fastapi/.env` (use the example). On macOS Finder, files starting with a dot can be hidden—use Terminal if needed:
+
+```bash
+cd /path/to/KidneywiseV1/backend_fastapi
+touch .env
+open -a TextEdit .env
+```
+
+```
+OPENAI_API_KEY=sk-your-openai-key
+FDC_API_KEY=your-usda-fdc-key
+ENVIRONMENT=development
+```
+
+Optional frontend environment variable (default is `http://localhost:8000`):
+
+```
+VITE_API_BASE_URL=http://localhost:8000
+```
+
+### Sample Requests
+
+**Identify food candidates**
+
+```bash
+curl -X POST http://localhost:8000/identify_food \\
+  -F image=@/path/to/food.jpg \\
+  -F optional_context_text=\"home cooked, no added salt\"
+```
+
+### Voice Input Notes
+
+The MVP UI uses the **Web Speech API** for in-browser transcription (no additional API keys needed). If the browser lacks speech recognition support, you can still type or paste a transcript and submit it.
+
+**Compute nutrients**
+
+```bash
+curl -X POST http://localhost:8000/compute_nutrients \\
+  -H \"Content-Type: application/json\" \\
+  -d '{
+    \"confirmed_dish_name\": \"grilled chicken breast\",
+    \"portion_description\": \"6 oz\",
+    \"optional_clarifications\": \"skinless\"
+  }'
+```
+
+**Menu suggestions**
+
+```bash
+curl -X POST http://localhost:8000/menu_suggestions \\
+  -F image=@/path/to/menu.jpg \\
+  -F optional_context_text=\"seafood dinner menu\" \\
+  -F user_profile='{\"ckd_stage\":\"Stage 3\",\"dialysis\":\"no\"}'
+```
+
+### Example Output (Compute Nutrients)
+
+```json
+{
+  \"standardized_portion_grams\": 170,
+  \"nutrient_estimates\": {
+    \"potassium_mg\": 382.5,
+    \"sodium_mg\": 120.7,
+    \"protein_g\": 53.4
+  },
+  \"uncertainty\": {
+    \"low\": \"-20%\", 
+    \"high\": \"+25%\"
+  },
+  \"data_sources\": [
+    {
+      \"fdc_id\": 123456,
+      \"description\": \"Chicken breast, roasted\",
+      \"fdc_link\": \"https://fdc.nal.usda.gov/fdc-app.html#/food-details/123456/nutrients\"
+    }
+  ],
+  \"disclaimers\": [
+    \"This is an estimate and not medical advice.\",
+    \"Nutrient values are sourced from USDA FoodData Central and scaled to the portion.\"
+  ]
+}
+```
+
 A fully functional MVP Progressive Web App for chronic kidney disease (CKD) patients to manage their diet through AI-powered food photo analysis.
 
 ## Features Implemented
